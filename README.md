@@ -175,7 +175,13 @@ void setup() {
 ### 7. Implementaciones adicionales
 - Incluir el campo central
   - Para hacerlo lo más parecido posible al **Pong** original, se ha dibujado líneas en el centro de la pantalla. Para realizarlo, se hizo una declaración **for** para dibujar las lineas en cada posicion diferente del centro.
-  
+        
+        int posicion_linea_x;
+        int posicion_linea_y;
+        
+        posicion_linea_x = width/2-5;
+        posicion_linea_y = height/20;
+        
         for(int i = 0; i<80; i++){
           rect(posicion_linea_x, posicion_linea_y,5,5);
           posicion_linea_y +=10;
@@ -215,7 +221,17 @@ void setup() {
           sonido2.trigger();
           }
 - Incrementar la velocidad
-  - Para que el juego no sea constante y a la larga sea aburrido, se ha creado un contador en el cual, por cada 7 rebotes totales que los jugadores han hecho, se incrementa 1 unidad de velocidad, para así hacerlo más díficil y divertido.
+  - Para que el juego no sea constante y a la larga sea aburrido, se ha creado un contador en el cual, por cada "x" rebotes totales que los jugadores han hecho, se incrementa 1 unidad de velocidad, para así hacerlo más díficil y divertido.
+          
+          int cuentaRebote=0;
+          .
+          .
+          .
+          if ((vx<0 && px+20 >=jx_izq && jx_izq+ancho > px && jy <= py+20 && jy+alto > py )){  //Jugador izquierdo
+            vx=-vx;
+            vy= (int) random(-5,5);
+            cuentaRebote++;
+          }
           
           if(cuentaRebote >6){
             if(vx<0){
